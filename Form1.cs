@@ -27,11 +27,17 @@ namespace Tavugras_FanniNikol
                     {
                         string line = sr.ReadLine();
                         string[] parts = line.Split(';');
-                        if (parts.Length >= 7)
+                        if (parts.Length >= 3)
                         {
                             string name = parts[0];
                             string city = parts[1];
-                            string results = parts[2] + " " + parts[3] + " " + parts[4] + " " + parts[5] + " " + parts[6] + " ";
+                            string results = "";
+                            for (int i = 2; i < parts.Length; i++)
+                            {
+                                results += parts[i];
+                                if (i < parts.Length - 1)
+                                    results += " ";
+                            }
                             Student student = new Student(name, city, results);
                             allStudents.Add(student);
                         }
@@ -47,9 +53,15 @@ namespace Tavugras_FanniNikol
 
         private void addButton_Click(object sender, EventArgs e)
         {
+          
             string name = nameBox.Text;
             string city = cityBox.Text;
             string result = resultBox.Text;
+            if (name == "" || city == "" || result == "")
+            {
+                MessageBox.Show("Írja be a hiányzó adatokat!");
+                return;
+            }
             Student student = new Student(name, city, result);
             allStudents.Add(student);
             RefreshList(cityFilter.Text);
@@ -61,17 +73,18 @@ namespace Tavugras_FanniNikol
 
         private void listBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var student = listBox.SelectedItem as Student;
-            if (student != null)
-            {
-                nameBox.Text = student.name;
-                cityBox.Text = student.city;
-                resultBox.Text = student.result;
-            }
-            Console.WriteLine(student.ValidJumpsCount());
-            validJumpLabel.Text = "Érvényes ugrások száma: " + student.ValidJumpsCount().ToString();
-            averageDistanceLabel.Text = "Átlagos távolség: " + student.AverageJump().ToString();
-            largestDistanceLabel.Text = "Legnagyobb távolság: "+ student.BestJump().ToString();
+            Student student = listBox.SelectedItem as Student;
+
+            if (student == null)
+                return;
+
+            nameBox.Text = student.name;
+            cityBox.Text = student.city;
+            resultBox.Text = student.result;
+
+            validJumpLabel.Text = "Érvényes ugrások száma: " + student.ValidJumpsCount();
+            averageDistanceLabel.Text = "Átlagos távolság: " + student.AverageJump();
+            largestDistanceLabel.Text = "Legnagyobb távolság: " + student.BestJump();
         }
 
         private void cityFilter_TextChanged(object sender, EventArgs e)
@@ -147,7 +160,16 @@ namespace Tavugras_FanniNikol
                 {
                     foreach (var student in allStudents)
                     {
-                        sw.WriteLine($"{student.name};{student.city}");
+                        string line = student.name + ";" + student.city;
+
+                        string[] jumps = student.result.Split(' ');
+
+                        for (int i = 0; i < jumps.Length; i++)
+                        {
+                            line += ";" + jumps[i];
+                        }
+
+                        sw.WriteLine(line);
                     }
                 }
             }

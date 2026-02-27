@@ -128,6 +128,7 @@
             // 
             // groupBox
             // 
+            this.groupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(225)))));
             this.groupBox.Controls.Add(this.label4);
             this.groupBox.Controls.Add(this.label3);
             this.groupBox.Controls.Add(this.winnerCount);
@@ -180,6 +181,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(255)))), ((int)(((byte)(236)))));
             this.panel1.Controls.Add(this.largestDistanceLabel);
             this.panel1.Controls.Add(this.averageDistanceLabel);
             this.panel1.Controls.Add(this.validJumpLabel);
@@ -220,6 +222,7 @@
             // 
             // radioGroupBox
             // 
+            this.radioGroupBox.BackColor = System.Drawing.Color.White;
             this.radioGroupBox.Controls.Add(this.largestDistanceRadio);
             this.radioGroupBox.Controls.Add(this.averageDistanceRadio);
             this.radioGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -233,25 +236,27 @@
             // largestDistanceRadio
             // 
             this.largestDistanceRadio.AutoSize = true;
+            this.largestDistanceRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.largestDistanceRadio.Location = new System.Drawing.Point(16, 83);
             this.largestDistanceRadio.Name = "largestDistanceRadio";
             this.largestDistanceRadio.Size = new System.Drawing.Size(178, 21);
             this.largestDistanceRadio.TabIndex = 1;
             this.largestDistanceRadio.TabStop = true;
             this.largestDistanceRadio.Text = "Legnagyobb táv alapján";
-            this.largestDistanceRadio.UseVisualStyleBackColor = true;
+            this.largestDistanceRadio.UseVisualStyleBackColor = false;
             this.largestDistanceRadio.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // averageDistanceRadio
             // 
             this.averageDistanceRadio.AutoSize = true;
+            this.averageDistanceRadio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
             this.averageDistanceRadio.Location = new System.Drawing.Point(16, 37);
             this.averageDistanceRadio.Name = "averageDistanceRadio";
             this.averageDistanceRadio.Size = new System.Drawing.Size(146, 21);
             this.averageDistanceRadio.TabIndex = 0;
             this.averageDistanceRadio.TabStop = true;
             this.averageDistanceRadio.Text = "Átlagos táv alapján";
-            this.averageDistanceRadio.UseVisualStyleBackColor = true;
+            this.averageDistanceRadio.UseVisualStyleBackColor = false;
             this.averageDistanceRadio.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // addButton
@@ -292,14 +297,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -307,14 +312,14 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // Form1
             // 
@@ -332,7 +337,9 @@
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox.ResumeLayout(false);

@@ -27,36 +27,59 @@ namespace Tavugras_FanniNikol
 
         public int ValidJumpsCount()
         {
-            var jumps = result.Split(' ');
-            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
-            var validJumps = jumps.Select(j => double.Parse(j))
-                        .Where(j => j > 0)
-                        .Count();
-            return validJumps;
+            try
+            {
+                var jumps = result.Split(' ');
+                var validJumps = jumps
+                    .Select(j => double.Parse(j))
+                    .Where(j => j > 0);
+
+                return validJumps.Count();
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public double AverageJump()
         {
-            var jumps = result.Split(' ');
+            try
+            {
+                var jumps = result.Split(' ');
+                var validJumps = jumps
+                    .Select(j => double.Parse(j))
+                    .Where(j => j > 0);
 
-            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
-            
-            var validJumps = jumps.Select(j => double.Parse(j))
-                                  .Where(j => j > 0 );
+                if (validJumps.Count() == 0)
+                    return 0;
 
-            double avg = validJumps.Average();
-            return Math.Round(avg, 2);
+                return Math.Round(validJumps.Average(), 2);
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         public double BestJump()
         {
-            var jumps = result.Split(' ');
-            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
-            var validJumps = jumps.Select(j => double.Parse(j))
-                                  .Where(j => j > 0);
+            try
+            {
+                var jumps = result.Split(' ');
+                var validJumps = jumps
+                    .Select(j => double.Parse(j))
+                    .Where(j => j > 0);
 
-            double best = validJumps.Max();
-            return Math.Round(best, 2);
+                if (validJumps.Count() == 0)
+                    return 0;
+
+                return Math.Round(validJumps.Max(), 2);
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
     }
