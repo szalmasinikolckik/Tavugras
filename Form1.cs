@@ -18,23 +18,31 @@ namespace Tavugras_FanniNikol
 
         private void LoadData(string path)
         {
-            using (StreamReader sr = new StreamReader(path))
+            try
             {
-                allStudents.Clear();
-                while (!sr.EndOfStream)
+                using (StreamReader sr = new StreamReader(path))
                 {
-                    string line = sr.ReadLine();
-                    string[] parts = line.Split(';');
-                    if (parts.Length >= 7)
+                    allStudents.Clear();
+                    while (!sr.EndOfStream)
                     {
-                        string name = parts[0];
-                        string city = parts[1];
-                        string results = parts[2] + " " + parts[3] + " " + parts[4] + " " + parts[5] + " " + parts[6] + " ";
-                        Student student = new Student(name, city, results);
-                        allStudents.Add(student);
+                        string line = sr.ReadLine();
+                        string[] parts = line.Split(';');
+                        if (parts.Length >= 7)
+                        {
+                            string name = parts[0];
+                            string city = parts[1];
+                            string results = parts[2] + " " + parts[3] + " " + parts[4] + " " + parts[5] + " " + parts[6] + " ";
+                            Student student = new Student(name, city, results);
+                            allStudents.Add(student);
+                        }
                     }
                 }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -123,6 +131,32 @@ namespace Tavugras_FanniNikol
                     listBox.Items.Add(student);
                 }
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                {
+                    foreach (var student in allStudents)
+                    {
+                        sw.WriteLine($"{student.name};{student.city}");
+                    }
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+           
+
         }
     }
 }
