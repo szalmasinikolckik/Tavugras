@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Tavugras_FanniNikol
 {
@@ -30,11 +25,11 @@ namespace Tavugras_FanniNikol
                 {
                     string line = sr.ReadLine();
                     string[] parts = line.Split(';');
-                    if (parts.Length >= 3)
+                    if (parts.Length >= 7)
                     {
                         string name = parts[0];
                         string city = parts[1];
-                        string results = parts[2] + " " + parts[3] + " " + parts[4] + " " + parts[5] + " "  + parts[6] + " ";
+                        string results = parts[2] + " " + parts[3] + " " + parts[4] + " " + parts[5] + " " + parts[6] + " ";
                         Student student = new Student(name, city, results);
                         allStudents.Add(student);
                     }
@@ -48,7 +43,7 @@ namespace Tavugras_FanniNikol
             string city = cityBox.Text;
             string result = resultBox.Text;
             Student student = new Student(name, city, result);
-            allStudents.Add(student);      
+            allStudents.Add(student);
             RefreshList(cityFilter.Text);
             nameBox.Clear();
             cityBox.Clear();
@@ -65,6 +60,10 @@ namespace Tavugras_FanniNikol
                 cityBox.Text = student.city;
                 resultBox.Text = student.result;
             }
+            Console.WriteLine(student.ValidJumpsCount());
+            validJumpLabel.Text = "Érvényes ugrások száma: " + student.ValidJumpsCount().ToString();
+            averageDistanceLabel.Text = "Átlagos távolség: " + student.AverageJump().ToString();
+            largestDistanceLabel.Text = "Legnagyobb távolság: "+ student.BestJump().ToString();
         }
 
         private void cityFilter_TextChanged(object sender, EventArgs e)
@@ -100,11 +99,30 @@ namespace Tavugras_FanniNikol
             ofd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             if (ofd.ShowDialog() != DialogResult.OK)
             {
-               return;
+                return;
             }
             LoadData(ofd.FileName);
             RefreshList(cityFilter.Text);
         }
 
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null && rb.Checked)
+            {
+                IEnumerable<Student> sorted;
+
+                if (largestDistanceRadio.Checked)
+                    sorted = allStudents.OrderByDescending(s => s.BestJump());
+                else
+                    sorted = allStudents.OrderByDescending(s => s.AverageJump());
+
+                listBox.Items.Clear();
+                foreach (var student in sorted)
+                {
+                    listBox.Items.Add(student);
+                }
+            }
+        }
     }
 }

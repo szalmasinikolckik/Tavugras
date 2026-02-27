@@ -37,17 +37,17 @@
             this.resultBox = new System.Windows.Forms.TextBox();
             this.listBox = new System.Windows.Forms.ListBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.cityFilter = new System.Windows.Forms.TextBox();
-            this.winnerCount = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.winnerCount = new System.Windows.Forms.NumericUpDown();
+            this.cityFilter = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.validJumpLabel = new System.Windows.Forms.Label();
-            this.averageDistanceLabel = new System.Windows.Forms.Label();
             this.largestDistanceLabel = new System.Windows.Forms.Label();
+            this.averageDistanceLabel = new System.Windows.Forms.Label();
+            this.validJumpLabel = new System.Windows.Forms.Label();
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
-            this.averageDistanceRadio = new System.Windows.Forms.RadioButton();
             this.largestDistanceRadio = new System.Windows.Forms.RadioButton();
+            this.averageDistanceRadio = new System.Windows.Forms.RadioButton();
             this.addButton = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,22 +141,15 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Versenyzők adatai";
             // 
-            // cityFilter
+            // label4
             // 
-            this.cityFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cityFilter.Location = new System.Drawing.Point(170, 269);
-            this.cityFilter.Name = "cityFilter";
-            this.cityFilter.Size = new System.Drawing.Size(118, 26);
-            this.cityFilter.TabIndex = 7;
-            this.cityFilter.TextChanged += new System.EventHandler(this.cityFilter_TextChanged);
-            // 
-            // winnerCount
-            // 
-            this.winnerCount.Location = new System.Drawing.Point(170, 317);
-            this.winnerCount.Name = "winnerCount";
-            this.winnerCount.Size = new System.Drawing.Size(118, 23);
-            this.winnerCount.TabIndex = 8;
-            this.winnerCount.ValueChanged += new System.EventHandler(this.winnerCount_ValueChanged);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(23, 316);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Díjazottak száma:";
             // 
             // label3
             // 
@@ -168,15 +161,22 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Szűrés (Város):";
             // 
-            // label4
+            // winnerCount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(23, 316);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 20);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Díjazottak száma:";
+            this.winnerCount.Location = new System.Drawing.Point(170, 317);
+            this.winnerCount.Name = "winnerCount";
+            this.winnerCount.Size = new System.Drawing.Size(118, 23);
+            this.winnerCount.TabIndex = 8;
+            this.winnerCount.ValueChanged += new System.EventHandler(this.winnerCount_ValueChanged);
+            // 
+            // cityFilter
+            // 
+            this.cityFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cityFilter.Location = new System.Drawing.Point(170, 269);
+            this.cityFilter.Name = "cityFilter";
+            this.cityFilter.Size = new System.Drawing.Size(118, 26);
+            this.cityFilter.TabIndex = 7;
+            this.cityFilter.TextChanged += new System.EventHandler(this.cityFilter_TextChanged);
             // 
             // panel1
             // 
@@ -188,15 +188,15 @@
             this.panel1.Size = new System.Drawing.Size(441, 169);
             this.panel1.TabIndex = 8;
             // 
-            // validJumpLabel
+            // largestDistanceLabel
             // 
-            this.validJumpLabel.AutoSize = true;
-            this.validJumpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.validJumpLabel.Location = new System.Drawing.Point(20, 31);
-            this.validJumpLabel.Name = "validJumpLabel";
-            this.validJumpLabel.Size = new System.Drawing.Size(190, 20);
-            this.validJumpLabel.TabIndex = 5;
-            this.validJumpLabel.Text = "Érvényes ugrások száma:";
+            this.largestDistanceLabel.AutoSize = true;
+            this.largestDistanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.largestDistanceLabel.Location = new System.Drawing.Point(20, 111);
+            this.largestDistanceLabel.Name = "largestDistanceLabel";
+            this.largestDistanceLabel.Size = new System.Drawing.Size(164, 20);
+            this.largestDistanceLabel.TabIndex = 7;
+            this.largestDistanceLabel.Text = "Legnagyobb távolság:";
             // 
             // averageDistanceLabel
             // 
@@ -208,15 +208,15 @@
             this.averageDistanceLabel.TabIndex = 6;
             this.averageDistanceLabel.Text = "Átlagos távolság:";
             // 
-            // largestDistanceLabel
+            // validJumpLabel
             // 
-            this.largestDistanceLabel.AutoSize = true;
-            this.largestDistanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.largestDistanceLabel.Location = new System.Drawing.Point(20, 111);
-            this.largestDistanceLabel.Name = "largestDistanceLabel";
-            this.largestDistanceLabel.Size = new System.Drawing.Size(164, 20);
-            this.largestDistanceLabel.TabIndex = 7;
-            this.largestDistanceLabel.Text = "Legnagyobb távolság:";
+            this.validJumpLabel.AutoSize = true;
+            this.validJumpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.validJumpLabel.Location = new System.Drawing.Point(20, 31);
+            this.validJumpLabel.Name = "validJumpLabel";
+            this.validJumpLabel.Size = new System.Drawing.Size(190, 20);
+            this.validJumpLabel.TabIndex = 5;
+            this.validJumpLabel.Text = "Érvényes ugrások száma:";
             // 
             // radioGroupBox
             // 
@@ -230,17 +230,6 @@
             this.radioGroupBox.TabStop = false;
             this.radioGroupBox.Text = "Toplista";
             // 
-            // averageDistanceRadio
-            // 
-            this.averageDistanceRadio.AutoSize = true;
-            this.averageDistanceRadio.Location = new System.Drawing.Point(16, 37);
-            this.averageDistanceRadio.Name = "averageDistanceRadio";
-            this.averageDistanceRadio.Size = new System.Drawing.Size(146, 21);
-            this.averageDistanceRadio.TabIndex = 0;
-            this.averageDistanceRadio.TabStop = true;
-            this.averageDistanceRadio.Text = "Átlagos táv alapján";
-            this.averageDistanceRadio.UseVisualStyleBackColor = true;
-            // 
             // largestDistanceRadio
             // 
             this.largestDistanceRadio.AutoSize = true;
@@ -251,6 +240,19 @@
             this.largestDistanceRadio.TabStop = true;
             this.largestDistanceRadio.Text = "Legnagyobb táv alapján";
             this.largestDistanceRadio.UseVisualStyleBackColor = true;
+            this.largestDistanceRadio.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // averageDistanceRadio
+            // 
+            this.averageDistanceRadio.AutoSize = true;
+            this.averageDistanceRadio.Location = new System.Drawing.Point(16, 37);
+            this.averageDistanceRadio.Name = "averageDistanceRadio";
+            this.averageDistanceRadio.Size = new System.Drawing.Size(146, 21);
+            this.averageDistanceRadio.TabIndex = 0;
+            this.averageDistanceRadio.TabStop = true;
+            this.averageDistanceRadio.Text = "Átlagos táv alapján";
+            this.averageDistanceRadio.UseVisualStyleBackColor = true;
+            this.averageDistanceRadio.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // addButton
             // 
@@ -290,14 +292,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -305,13 +307,13 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // Form1
             // 
@@ -376,4 +378,3 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
-

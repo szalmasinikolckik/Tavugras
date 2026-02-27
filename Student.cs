@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,41 @@ namespace Tavugras_FanniNikol
         override public string ToString()
         {
             return $"{name} ({city})";
-        }   
+        }
+
+        public int ValidJumpsCount()
+        {
+            var jumps = result.Split(' ');
+            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
+            var validJumps = jumps.Select(j => double.Parse(j))
+                        .Where(j => j > 0)
+                        .Count();
+            return validJumps;
+        }
+
+        public double AverageJump()
+        {
+            var jumps = result.Split(' ');
+
+            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
+            
+            var validJumps = jumps.Select(j => double.Parse(j))
+                                  .Where(j => j > 0 );
+
+            double avg = validJumps.Average();
+            return Math.Round(avg, 2);
+        }
+
+        public double BestJump()
+        {
+            var jumps = result.Split(' ');
+            jumps = jumps.Take(jumps.Length - 1).ToArray(); ;
+            var validJumps = jumps.Select(j => double.Parse(j))
+                                  .Where(j => j > 0);
+
+            double best = validJumps.Max();
+            return Math.Round(best, 2);
+        }
+
     }
 }
